@@ -10,3 +10,4 @@ python GUI IOC framework
 
 1. 完成基本IOC功能
 2. 封装基于pyside6的界面程序
+3. 支持基于注解开发
