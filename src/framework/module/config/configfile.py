@@ -16,15 +16,15 @@ class ConfigFile:
     def __init__(self, path=''):
 
         # 配置文件路径
-        self.path = r'resources/config.yaml'
+        self.path = r'resources/application.yaml'
         if path:
             self.path = path
 
         if not os.path.exists(self.path):
             # config.yaml不存在，尝试config_pro.yaml
-            if os.path.exists(r'resources/config_pro.yaml'):
+            if os.path.exists(r'resources/config.yaml'):
                 # 存在
-                self.path = r'resources/config_pro.yaml'
+                self.path = r'resources/config.yaml'
 
     def getConfig(self):
         """

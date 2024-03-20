@@ -1,0 +1,46 @@
+
+
+# ### 运行环境 ###
+env: development
+
+# ### 组件配置 ###
+# 框架组件配置
+frame:
+  core:
+    a: 1
+
+
+# ### 业务代码配置 ###
+# 指定交给框架管理的类的路径
+business:
+  # classpath的值可以为列表, 也可以为字符串
+  # 类路径，可以为文件或文件夹。文件时：直接尝试实例；文件夹时：路径下的所有文件及子目录文件都会尝试实例。
+  # 如：src.test.hello hello为.py文件，Hello为类名；或者 src.test test为文件夹
+#  classpath: main.view.view
+  annotate: # 开启扫描注解
+    # classpath的值可以为列表, 也可以为字符串
+    # 扫描路径，可以为文件或文件夹。文件时：忽略扫描，直接尝试实例；文件夹时：路径下的所有文件及子目录文件都会扫描。
+    # 如：src.test.hello hello为.py文件，Hello为类名；或者 src.test test为文件夹
+    classpath: core
+  # 排除，该项所指定的文件或问价夹，不实例
+  exceptpath: [core.view.ui, core.view.style]
+
+
+# ### 插件配置 ###
+# 预设或自定义的插件的配置
+plugins:
+  pagemanager: # 插件的名称，如果是自定义插件，该名称可自主命名
+    name: page # 插件的简称，在DI依赖注入时，使用该简称来识别是否注入该插件。如为指定，默认使用插件名
+    classpath: framework.plugins.pagemanager.pagemanager.PageManager # 插件的路径，精确到类（启动类）名。如果是自定义插件，则该项为必填项，未指定则会忽略该插件
+    parameter: # 插件所需要的参数
+      homewin: core.view.show.home # 参数名及值
+      basepath: core.view.show
+
+
+
+
+
+
+
+
+
